@@ -1,24 +1,35 @@
 package Lessons.Lesson1;
 
-import java.util.HashMap;
+import Lessons.Lesson1.animals.Animal;
+import Lessons.Lesson1.animals.Cat;
+import Lessons.Lesson1.animals.Dog;
 
 public class MainApp {
     public static void main(String[] args) {
         Cat cat1 = new Cat("Barsik", "White", 2);
         Cat cat2 = new Cat("Murzik", "Black", 4);
-        Cat.doSomething();
-        cat1.setName("Murka");
+        Dog dog1 = new Dog("Bobik", "White", 3);
 
-        Cat[] cats = new Cat[2];
-        cats[0] = cat1;
-        cats[1] = cat2;
-        cats[0].info();
+        cat1.voice();
+        dog1.voice();
 
-        doSomething();
-        doSomething();
+//        Animal animal = new Dog("Animal", "Black", 10);
+//        animal.voice();
+//        if (animal instanceof Cat) {
+//            ((Cat) animal).catMethod();  // catMethod
+//        } else {
+//            System.out.println("It doesn't a cat");
+//        }
+
+        System.out.println(cat1);
+
+        Box box1 = new Box("Green", 2);
+        Box box2 = new Box("Red", 2);
+
+        System.out.println(box1.equals(box2));
+        System.out.println(box1.hashCode());
+        System.out.println(box2.hashCode());
+
     }
 
-    public static void doSomething() {
-        int b;
-    }
 }
