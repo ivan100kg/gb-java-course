@@ -1,10 +1,8 @@
 package Lessons.Lesson1;
 
-public class Cat {
-    // поля нужно делать private
-    private String name;
-    private String color;
-    private int age;
+public class Cat extends Animal{
+    public Cat(){
+    }
 
     public Cat(String name, String color, int age) {
         this.name = name;
@@ -17,7 +15,10 @@ public class Cat {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name.length() <= 5) {
+            this.name = name;
+        }
+        else throw new IllegalArgumentException(name + " is too long");
     }
 
     public void info() {
