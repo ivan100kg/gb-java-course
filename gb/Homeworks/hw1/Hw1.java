@@ -1,7 +1,5 @@
 package Homeworks.hw1;
 
-import Lessons.Lesson1.animals.Cat;
-
 public class Hw1 {
     public static void main(String[] args) {
         Animal[] arr = {new HomeCat("Murzik"),
