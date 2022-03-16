@@ -12,29 +12,28 @@ public class Human implements BeAbleParticipate {
     }
 
     @Override
-    public void jump(int height) {
-        if (height <= MAX_HEIGHT)
+    public boolean jump(int height) {
+        if (height <= MAX_HEIGHT) {
             System.out.println("Human jumped " + height + " m.");
+            return true;
+        }
         else {
             System.out.println("Human didn't jump " + height + " m.");
-            inGame = false;
             System.out.println("Human exit");
+            return false;
         }
     }
 
     @Override
-    public void run(int length) {
-        if (length <= MAX_LENGTH)
+    public boolean run(int length) {
+        if (length <= MAX_LENGTH) {
             System.out.println("Human run " + length + " m.");
+            return true;
+        }
         else {
             System.out.println("Human didn't run " + length + " m.");
-            inGame = false;
             System.out.println("Human exit");
+            return false;
         }
-    }
-
-    @Override
-    public boolean inGame() {
-        return inGame;
     }
 }

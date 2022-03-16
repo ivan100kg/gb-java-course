@@ -20,11 +20,7 @@ public class MainApp {
 
         for (BeAbleParticipate b : participants) {
             for (Obstacles o : obstacles) {
-                if (!b.inGame()) break;
-                if (o instanceof Treadmill)
-                    b.run(((Treadmill) o).length);
-                else
-                    b.jump(((Wall) o).height);
+                if (!(o.overcame(b))) break;
             }
         }
 

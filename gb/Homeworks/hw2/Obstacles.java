@@ -1,4 +1,5 @@
 package Homeworks.hw2;
 
-public interface Obstacles {
+public abstract class Obstacles {
+    abstract boolean overcame(BeAbleParticipate b);
 }

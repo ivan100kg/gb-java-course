@@ -12,30 +12,28 @@ public class Cat implements BeAbleParticipate {
     }
 
     @Override
-    public void jump(int height) {
-        if(height <= MAX_HEIGHT)
-            System.out.println("Cat jump " + height + " m.");
+    public boolean jump(int height) {
+        if (height <= MAX_HEIGHT) {
+            System.out.println("Cat jumped " + height + " m.");
+            return true;
+        }
         else {
             System.out.println("Cat didn't jump " + height + " m.");
-            inGame = false;
             System.out.println("Cat exit");
+            return false;
         }
     }
 
     @Override
-    public void run(int length) {
-        if(length <= MAX_LENGTH)
+    public boolean run(int length) {
+        if (length <= MAX_LENGTH) {
             System.out.println("Cat run " + length + " m.");
+            return true;
+        }
         else {
             System.out.println("Cat didn't run " + length + " m.");
-            inGame = false;
             System.out.println("Cat exit");
-
+            return false;
         }
-    }
-
-    @Override
-    public boolean inGame() {
-        return inGame;
     }
 }
