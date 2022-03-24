@@ -1,9 +1,6 @@
 package homeworks.hw5;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -38,17 +35,16 @@ public class MainApp {
 }
 
 class PhoneBook {
-    private HashMap<String, String> map = new HashMap<>();
+    private HashMap<String, HashSet<String>> map = new HashMap<>();
 
     void add(String name, String phoneNumber) {
-        if (map.containsKey(name)) {
-            map.put(name, map.get(name) + " " + phoneNumber);
-        } else {
-            map.put(name, phoneNumber);
+        if (!map.containsKey(name)) {
+            map.put(name, new HashSet<>());
         }
+        map.get(name).add(phoneNumber);
     }
 
-    String get(String name) {
-        return map.getOrDefault(name, "name \"" + name + "\" is not found");
+    Set<String> get(String name) {
+        return map.get(name);
     }
 }
