@@ -8,7 +8,7 @@ import java.util.List;
 public class MainApp {
     public static void main(String[] args) {
         // task #1
-        String[] arr = {"a", "b", "c", "d", "d", "c", "b", "a", "e", "f", "g"};
+        String[] arr = {"a", "b", "c", "d", "d", "c", "b", "a", "c", "f", "g"};
         HashSet<String> set = new HashSet<>(List.of(arr));
         System.out.println(set);
         HashMap<String, Integer> map = new HashMap<>();
@@ -16,8 +16,7 @@ public class MainApp {
             if (!map.containsKey(s)) {
                 map.put(s, 1);
             } else {
-                int count = map.get(s);
-                map.put(s, count + 1);
+                map.put(s, map.get(s) + 1);
             }
         }
         System.out.println(map);
@@ -43,8 +42,7 @@ class PhoneBook {
 
     void add(String name, String phoneNumber) {
         if (map.containsKey(name)) {
-            String tempPhoneNumber = map.get(name);
-            map.put(name, tempPhoneNumber + " " + phoneNumber);
+            map.put(name, map.get(name) + " " + phoneNumber);
         } else {
             map.put(name, phoneNumber);
         }
