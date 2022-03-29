@@ -20,22 +20,22 @@ public class Counter {
     }
 }
 
-class TestCounter{
+class TestCounter {
     public static void main(String[] args) throws InterruptedException {
         Counter counter = new Counter();
 
-        Thread incThread = new Thread(()->{
-           for (int i = 0; i < 100; i++) {
-               counter.inc();
-               try {
-                   Thread.sleep(5);
-               } catch (InterruptedException e) {
-                   e.printStackTrace();
-               }
-           }
+        Thread incThread = new Thread(() -> {
+            for (int i = 0; i < 100; i++) {
+                counter.inc();
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         });
 
-        Thread decThread = new Thread(()->{
+        Thread decThread = new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 counter.dec();
                 try {
