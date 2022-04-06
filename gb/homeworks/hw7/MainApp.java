@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainApp {
     public static final int CARS_COUNT = 4;
@@ -33,10 +34,12 @@ public class MainApp {
 
 class Car implements Runnable {
     private static int CARS_COUNT;
+    private static AtomicInteger ai;
 
 
     static {
         CARS_COUNT = 0;
+        ai = new AtomicInteger(0);
     }
 
     private Race race;
@@ -72,6 +75,10 @@ class Car implements Runnable {
             for (int i = 0; i < race.getStages().size(); i++) {
                 race.getStages().get(i).go(this);
 
+            }
+
+            if(ai.incrementAndGet() == 1) {
+                System.out.println((name + " - WIN"));
             }
             cb.await();
 
