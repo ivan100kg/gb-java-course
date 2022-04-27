@@ -8,7 +8,7 @@ public class MainApp {
     }
 
     public static void doSomething(MyInterface<String> myInterface, String s) {
-        myInterface.get(s);
+        myInterface.doSomething(s);
     }
 
 }
