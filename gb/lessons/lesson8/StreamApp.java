@@ -44,5 +44,25 @@ public class StreamApp {
 
     public static void main(String[] args) {
         streamSimpleTask();
+
+        List<Integer> list = new ArrayList<>(Arrays.asList(9, 2, 3, 4, 5, 0, 1, 2, 3, 9));
+        int max = list.stream()
+//                .peek(integer -> System.out.print(integer + " "))
+                .filter(integer -> integer > 1)
+//                .peek(integer -> System.out.print(integer + " "))
+                .distinct()
+//                .peek(integer -> System.out.print(integer + " "))
+                .sorted()
+//                .peek(integer -> System.out.print(integer + " "))
+                .mapToInt(integer -> integer * integer)
+                .peek(integer -> System.out.print(integer + " "))
+                .max().orElse(0);
+        System.out.println("\nmax = " + max);
+
+        boolean allMatch = list.stream().allMatch(integer -> integer>81);
+        boolean anyMatch = list.stream().anyMatch(integer -> integer>81);
+        boolean noneMatch = list.stream().noneMatch(integer -> integer>81);
+        System.out.println(allMatch + " " + anyMatch + " " + noneMatch);
+
     }
 }
