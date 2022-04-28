@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamApp {
     static class Person {
@@ -59,10 +61,23 @@ public class StreamApp {
                 .max().orElse(0);
         System.out.println("\nmax = " + max);
 
-        boolean allMatch = list.stream().allMatch(integer -> integer>81);
-        boolean anyMatch = list.stream().anyMatch(integer -> integer>81);
-        boolean noneMatch = list.stream().noneMatch(integer -> integer>81);
+        boolean allMatch = list.stream().allMatch(integer -> integer > 81);
+        boolean anyMatch = list.stream().anyMatch(integer -> integer > 81);
+        boolean noneMatch = list.stream().noneMatch(integer -> integer > 81);
         System.out.println(allMatch + " " + anyMatch + " " + noneMatch);
+
+        list.stream().findAny().ifPresent(System.out::println);
+        int prod = list.stream()
+                .filter(integer -> integer > 0)
+                .reduce(1, ((integer, integer2) -> integer * integer2));
+        System.out.println(prod);
+
+        Stream<Long> longStream = Stream.of(12L,13L,14L);
+//        System.out.println(longStream.count());
+//        System.out.println(longStream.min(Long::compare));
+        longStream.max(Long::compare).ifPresent(System.out::println);
+
+        IntStream.range(0,1000).forEach(System.out::println);
 
     }
 }
