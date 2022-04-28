@@ -84,6 +84,8 @@ public class StreamApp {
 
         IntStream.range(0,1000).forEach(System.out::println);
 
+//        Stream.generate(Math::random).forEach(System.out::println);
+
         //-------------
         // Files
         try {
@@ -93,6 +95,11 @@ public class StreamApp {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        IntStream integerIntStream = IntStream.range(0,10);
+        integerIntStream.parallel()
+                .forEach(i-> System.out.println(Thread.currentThread().getName() + ": " + i));
+
 
     }
 }
