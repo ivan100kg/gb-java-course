@@ -1,8 +1,13 @@
 package lessons.lesson8;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -78,6 +83,16 @@ public class StreamApp {
         longStream.max(Long::compare).ifPresent(System.out::println);
 
         IntStream.range(0,1000).forEach(System.out::println);
+
+        //-------------
+        // Files
+        try {
+            System.out.println(Files.lines(Paths.get("1.txt"))
+                    .map(s -> s.toUpperCase(Locale.ROOT))
+                    .collect(Collectors.joining(",")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
