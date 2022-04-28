@@ -84,8 +84,9 @@ public class StreamApp {
 
         IntStream.range(0,1000).forEach(System.out::println);
 
-//        Stream.generate(Math::random).forEach(System.out::println);
-
+        Stream<Double> doubleStream = Stream.generate(Math::random);
+        doubleStream.limit(5).forEach(System.out::println);
+//                .limit(10);
         //-------------
         // Files
         try {
